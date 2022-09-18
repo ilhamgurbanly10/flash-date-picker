@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Date Picker</title>
+
+    <link rel="stylesheet" href="css/flash-date-picker.css">
+    <link rel="stylesheet" type="text/css" href="font_awesome/css/font-awesome.min.css">
+
+    <style>
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fl-date-picker {
+            margin-top: 2rem;
+        }
+
+        .fl-date-picker-input {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .fl-date-picker-toggler {
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 992px) {
+
+            .fl-date-picker-dropdown {
+                top: 11rem;
+            } 
+        
+        }    
+
+        h1, h3 {
+            font-family: sans-serif;
+            color: blue;
+            margin-top: 1rem;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Flash Date Picker</h1>
+    <h3>By Ilham Gurbanly</h3>
+
+
+    <div class="fl-date-picker">
+
+        <input type="date" class="fl-date-picker-input" name="date">
+
+        <button type="button" class="fl-date-picker-toggler">
+            <i class="fl-date-picker-toggler-icon fa fa-calendar"></i>
+            <span class="fl-date-picker-toggler-val"></span>
+            <i class="fl-date-picker-toggler-arrow fa fa-chevron-down"></i>
+        </button>
+
+        <div class="fl-date-picker-data" 
+            days-of-the-week="Sun,Mon,Tue,Wed,Thu,Fri,Sat"
+            months="January,February,March,April,May,June,July,August,September,October,November,December"
+        ></div>
+
+        <div class="fl-date-picker-dropdown dropdown">
+
+            <button type="button" class="fl-date-picker-corner-close fl-date-picker-iconic-btn fl-date-picker-rotate fl-date-picker-opacity">
+                <i class="fl-date-picker-corner-close-arrow fa fa-times"></i>
+            </button>
+
+            <div class="fl-date-picker-container">
+
+                <div class="fl-date-picker-header">
+                    
+                    <button type="button" class="fl-date-picker-year-toggler fl-date-picker-btn fl-date-picker-grow">
+                        2022
+                    </button>
+
+                    <button type="button" class="fl-date-picker-month-toggler fl-date-picker-btn fl-date-picker-grow">
+                        April
+                    </button>
+
+                    <button type="button" class="fl-date-picker-prev fl-date-picker-iconic-btn fl-date-picker-grow">
+                        <i class="fl-date-picker-arrow fa fa-chevron-left"></i>
+                    </button>
+
+                    <button type="button" class="fl-date-picker-next fl-date-picker-iconic-btn fl-date-picker-grow">
+                        <i class="fl-date-picker-arrow fa fa-chevron-right"></i>
+                    </button>
+
+                </div>
+
+                <div class="fl-date-picker-body">
+                    
+                    <!-- months-container -->
+                    <div class="fl-data-picker-months-container"></div> 
+                    
+                    <!-- years-container -->
+                    <div class="fl-data-picker-years-container fl-data-picker-scrollbar"></div> 
+
+                    <!-- days-container -->
+                    <div class="fl-data-picker-days-container show">
+                        <div class="fl-date-picker-days-of-week"></div>
+                    </div>
+
+                </div>
+
+                <div class="fl-date-picker-footer">
+                    <button type="button" class="fl-date-picker-reset fl-date-picker-btn fl-date-picker-warning fl-date-picker-grow">Reset</button>
+                    <button type="button" class="fl-date-picker-close fl-date-picker-btn fl-date-picker-warning fl-date-picker-grow">Close</button>
+                </div>
+            
+            </div>
+
+        </div>
+
+    </div>
+    
+
+    <script src="js/flash-date-picker.js"></script>
+
+</body>
+</html>
