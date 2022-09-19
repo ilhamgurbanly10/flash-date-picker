@@ -28,7 +28,7 @@ function flashDatePicker() {
 
         let selectedMonth, selectedDay, selectedYear, defaultSelectedBtn, defaultShownCon,
         containers = [], monthButtons = [], activeButton, yearButtons = [], defaultYearBtn,
-        yearIsChanged = false;
+        yearIsChanged = false, selectedYear2;
 
         const thisYear = date.getFullYear();
        
@@ -76,8 +76,7 @@ function flashDatePicker() {
                 createMonth(monthsData[i], indexes[i], isSelectedMonth(i + 1)); 
             } 
             const thisMonth = date.getMonth();
-            monthsToggler.innerHTML = monthsData[thisMonth];
-               
+            monthsToggler.innerHTML = monthsData[thisMonth];        
         } 
 
         const createMonth = (month, dataIndex, isSelected) => {
@@ -126,6 +125,7 @@ function flashDatePicker() {
         const setYears = () => {
             const thisYear = date.getFullYear();
             selectedYear = thisYear;
+            selectedYear2 = thisYear
             const limit = thisYear + 50;
             for (let i = 1900; i < limit; i++) { createYear(i) }
         }
@@ -155,6 +155,7 @@ function flashDatePicker() {
         const setYear = (event) => {
             yearsToggler.innerHTML = event.target.innerHTML;
             selectedYear = event.target.getAttribute('data-index'); 
+            selectedYear2 = event.target.getAttribute('data-index'); 
             setValues();
         }
 
@@ -191,7 +192,8 @@ function flashDatePicker() {
             activeBtn(defaultSelectedBtn); 
             showCon(defaultShownCon, true); 
             activeYear(false, defaultYearBtn);
-            if (yearIsChanged) { updateAllDays(false, defaultYearBtn, thisYear); console.log("I worked")}
+            if (yearIsChanged) updateAllDays(false, defaultYearBtn, thisYear);
+            showDays();
         }
 
         let allMonths = [];
@@ -200,7 +202,7 @@ function flashDatePicker() {
 
         const setAllDays = () => {
 
-            date.setFullYear(selectedYear);
+            date.setFullYear(selectedYear2);
             const year = date.getFullYear();
             
             for (let i = 0; i < 12; i++) {
@@ -231,7 +233,7 @@ function flashDatePicker() {
             let year;
             if (!btn) btn = defaultYearBtn;
             defaultYear ? year = thisYear : year = btn.getAttribute('data-index');
-            year < 1970 ? selectedYear = "1970" : selectedYear = year;
+            year < 1970 ? selectedYear2 = "1970" : selectedYear2 = year;
         }
 
         const emptyContent = () => {
